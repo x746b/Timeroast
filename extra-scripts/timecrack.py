@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
-"""Perform a simple dictionary attack against the output of timeroast.py. Neccessary because the NTP 'hash' format 
-unfortunately does not fit into Hashcat or John right now.
+"""Perform a simple dictionary attack against the output of timeroast.py.
 
 Not even remotely optimized, but still useful for cracking legacy default passwords (where the password is the computer 
 name) or specific default passwords that are popular in an organisation.
+
+For more extensive dictionary or brute-force attacks, it is highly recommended to use Hashcat (with hash type 31300) 
+instead.
 """
 
 from binascii import hexlify, unhexlify
@@ -54,6 +56,9 @@ def main():
 Not even remotely optimized, but still useful for cracking legacy default 
 passwords (where the password is the computer name) or specific default 
 passwords that are popular in an organisation.
+
+For more extensive dictionary or brute-force attacks, it is highly recommended to use Hashcat (with hash type 31300) 
+instead.
 """)
 
   argparser.add_argument('hashes', type=FileType('r'), help='Output of timeroast.py')
